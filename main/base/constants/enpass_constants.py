@@ -1,4 +1,4 @@
 FIELDS = "fields"
-GROUPING = "grouping"  # enpass export lacks the context of grouping
+GROUPING = "grouping"
 VALUE = 'value'
 LABEL = 'label'

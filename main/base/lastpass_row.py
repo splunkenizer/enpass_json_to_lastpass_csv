@@ -10,6 +10,7 @@ from main.base.fields.url_field import URLField
 from main.base.fields.webseite_field import WebseiteField
 from main.base.fields.username_field import UserNameField
 from main.base.fields.benutzername_field import BenutzernameField
+from main.base.fields.folders_field import GroupingField
 from test.fixture.base_test_fixture import row_with_all_fields
 
 
@@ -19,7 +20,8 @@ def get_enpass_field_interpreter(enpass_field_data) -> EnpassField:
             return field
 
 
-def get_row_initial_data(input_enpass_json_row):
+def get_row_initial_data(input_enpass_json_row,enpass_folders_json_array):
+    # url,username,password,totp,extra,name,grouping,fav
     row_data = {
         NameField.get_lastpass_field_name(): NameField.get_parsed_value(input_enpass_json_row),
         FavouriteField.get_lastpass_field_name(): FavouriteField.get_parsed_value(input_enpass_json_row),
@@ -27,12 +29,13 @@ def get_row_initial_data(input_enpass_json_row):
         UserNameField.get_lastpass_field_name(): "",
         PasswordField.get_lastpass_field_name(): "",
         ExtraField.get_lastpass_field_name(): NoteField.get_parsed_value(input_enpass_json_row),
+        GroupingField.get_lastpass_field_name(): GroupingField.get_parsed_value(input_enpass_json_row,enpass_folders_json_array),
     }
     return row_data
 
 
-def parse(input_enpass_json_row) -> {}:
-    row_data = get_row_initial_data(input_enpass_json_row)
+def parse(input_enpass_json_row,enpass_folders_json_array) -> {}:
+    row_data = get_row_initial_data(input_enpass_json_row,enpass_folders_json_array)
 
     enpass_fields_data = input_enpass_json_row[FIELDS]
     for enpass_field_data in enpass_fields_data:
