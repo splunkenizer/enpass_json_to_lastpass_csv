@@ -1,10 +1,9 @@
-from main.base.constants.enpass_constants import VALUE, LABEL
 from main.base.fields.enpass_field import EnpassField
 
 
-class URLField(EnpassField):
-    enpass_field_name = "URL"
-    lastpass_field_name = "url"
+class PasswortField(EnpassField):
+    enpass_field_name = "Passwort"
+    lastpass_field_name = "password"
 
     def __init__(self, value) -> None:
         self.field_value = value
@@ -23,8 +22,8 @@ class URLField(EnpassField):
     @classmethod
     def get_parsed_value(cls, input_value) -> str:
 
-        return input_value[VALUE]
+        return input_value["value"]
 
     @classmethod
     def is_applicable(cls, input_value) -> bool:
-        return input_value[LABEL] == cls.enpass_field_name
+        return input_value["label"] == cls.enpass_field_name

@@ -4,8 +4,11 @@ from main.base.fields.extra_field import ExtraField
 from main.base.fields.favourite_field import FavouriteField
 from main.base.fields.name_field import NameField
 from main.base.fields.password_field import PasswordField
+from main.base.fields.passwort_field import PasswortField
 from main.base.fields.url_field import URLField
-from main.base.fields.user_name_field import UserNameField
+from main.base.fields.webseite_field import WebseiteField
+from main.base.fields.username_field import UserNameField
+from main.base.fields.benutzername_field import BenutzernameField
 from test.fixture.base_test_fixture import row_with_all_fields
 
 

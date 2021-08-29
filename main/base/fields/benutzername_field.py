@@ -2,8 +2,8 @@ from main.base.constants.enpass_constants import VALUE, LABEL
 from main.base.fields.enpass_field import EnpassField
 
 
-class UserNameField(EnpassField):
-    enpass_field_name = "Username"
+class BenutzernameField(EnpassField):
+    enpass_field_name = "Benutzername"
     lastpass_field_name = "username"
 
     def __init__(self, value) -> None:

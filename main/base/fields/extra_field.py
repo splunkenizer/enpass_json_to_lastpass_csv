@@ -1,8 +1,11 @@
 from main.base.constants.enpass_constants import VALUE, LABEL
 from main.base.fields.enpass_field import EnpassField
 from main.base.fields.password_field import PasswordField
+from main.base.fields.passwort_field import PasswortField
 from main.base.fields.url_field import URLField
-from main.base.fields.user_name_field import UserNameField
+from main.base.fields.webseite_field import WebseiteField
+from main.base.fields.username_field import UserNameField
+from main.base.fields.benutzername_field import BenutzernameField
 
 
 class ExtraField(EnpassField):
