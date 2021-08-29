@@ -6,6 +6,7 @@ from main.base.fields.url_field import URLField
 from main.base.fields.webseite_field import WebseiteField
 from main.base.fields.username_field import UserNameField
 from main.base.fields.benutzername_field import BenutzernameField
+from main.base.fields.note_field import NoteField
 
 
 class ExtraField(EnpassField):
@@ -28,10 +29,15 @@ class ExtraField(EnpassField):
 
     @classmethod
     def get_parsed_value(cls, input_value) -> str:
-        return f"{input_value[LABEL]} : {input_value[VALUE]}\n"
+        return f"{input_value[LABEL]}: {input_value[VALUE]}\n"
 
     @classmethod
     def is_applicable(cls, input_value) -> bool:
-        return input_value[VALUE] != "" and input_value[LABEL] not in [URLField.enpass_field_name,
-                                                                       UserNameField.enpass_field_name,
-                                                                       PasswordField.enpass_field_name]
+        return input_value[VALUE] != "" and input_value[LABEL] not in [ URLField.enpass_field_name,
+                                                                        WebseiteField.enpass_field_name,
+                                                                        UserNameField.enpass_field_name,
+                                                                        BenutzernameField.enpass_field_name,
+                                                                        PasswordField.enpass_field_name,
+                                                                        PasswortField.enpass_field_name,
+                                                                        NoteField.enpass_field_name,
+                                                                        "Autofill Info"]

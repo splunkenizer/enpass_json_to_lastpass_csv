@@ -1,6 +1,7 @@
 from main.base.constants.enpass_constants import FIELDS, GROUPING
 from main.base.fields.enpass_field import EnpassField
 from main.base.fields.extra_field import ExtraField
+from main.base.fields.note_field import NoteField
 from main.base.fields.favourite_field import FavouriteField
 from main.base.fields.name_field import NameField
 from main.base.fields.password_field import PasswordField
@@ -25,8 +26,7 @@ def get_row_initial_data(input_enpass_json_row):
         URLField.get_lastpass_field_name(): "",
         UserNameField.get_lastpass_field_name(): "",
         PasswordField.get_lastpass_field_name(): "",
-        ExtraField.get_lastpass_field_name(): "",
-        GROUPING: "",
+        ExtraField.get_lastpass_field_name(): NoteField.get_parsed_value(input_enpass_json_row),
     }
     return row_data
 
